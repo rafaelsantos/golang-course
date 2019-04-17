@@ -24,4 +24,5 @@ func main() {
 
 	fmt.Println("Major", math.Max(float64(a), float64(b)))
 	fmt.Println("Minor", math.Min(c, d))
+	fmt.Println("Exponentiation", math.Pow(c, d))
 }
