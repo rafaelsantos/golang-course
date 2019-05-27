@@ -38,4 +38,16 @@ func main() {
 	//Slices can dynamically increses the size of the internal array
 	slice5 = append(slice5, 34)
 	fmt.Println(slice5, len(slice5), cap(slice5))
+
+	s1 := make([]int, 10, 20)
+
+	//s2 points to internal array of s2
+	s2 := append(s1, 1, 2, 3)
+	fmt.Println(s1, s2)
+
+	s1[0] = 7
+	fmt.Println(s1, s2)
+
+	s2[3] = 345
+	fmt.Println(s1, s2)
 }
