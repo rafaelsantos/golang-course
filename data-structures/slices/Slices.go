@@ -50,4 +50,14 @@ func main() {
 
 	s2[3] = 345
 	fmt.Println(s1, s2)
+
+	arr1 := [3]int{1, 2, 3}
+	var sl1 []int
+
+	sl1 = append(sl1, 4, 7, 8)
+	fmt.Println(arr1, sl1)
+
+	sl2 := make([]int, 1)
+	copy(sl2, sl1)
+	fmt.Println(sl2)
 }
