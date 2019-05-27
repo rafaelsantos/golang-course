@@ -18,4 +18,15 @@ func main() {
 	avg := total / float64(len(scores))
 
 	fmt.Println(avg)
+
+	//Compiler count [...]
+	numbers := [...]int{1, 2, 3, 4, 5}
+
+	for index, number := range numbers {
+		fmt.Printf("%d) %d\n", index+1, number)
+	}
+
+	for _, number := range numbers {
+		fmt.Println(number)
+	}
 }
