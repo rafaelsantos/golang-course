@@ -38,6 +38,9 @@ type ferrari struct {
 	turbo bool
 }
 
+//Customizing types
+type score float64
+
 //Creates a receiver of type product
 func (product product) priceWithDiscount() float64 {
 	return product.price * (1 - product.discount)
@@ -61,6 +64,20 @@ func (person *person) setName(name string) {
 	values := strings.Split(name, " ")
 	person.name = values[0]
 	person.surname = values[1]
+}
+
+func (score score) between(start, end float64) bool {
+	return float64(score) >= start && float64(score) <= end
+}
+
+func scoreResult(score score) string {
+	if score.between(9.0, 10.0) {
+		return "A"
+	} else if score.between(7.0, 8.99) {
+		return "B"
+	}
+
+	return "C"
 }
 
 func main() {
@@ -101,4 +118,7 @@ func main() {
 
 	log.Println(car.name, car.turbo)
 	log.Println(car)
+
+	//Using custom types
+	log.Println(scoreResult(9.4))
 }
