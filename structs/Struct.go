@@ -27,6 +27,17 @@ type person struct {
 	surname string
 }
 
+//Working with pseudo inheritance
+type car struct {
+	name  string
+	speed int
+}
+
+type ferrari struct {
+	car   //anonymous field
+	turbo bool
+}
+
 //Creates a receiver of type product
 func (product product) priceWithDiscount() float64 {
 	return product.price * (1 - product.discount)
@@ -78,4 +89,16 @@ func main() {
 
 	person1.setName("Juliana Lemes")
 	log.Println(person1.getName())
+
+	//Working with pseudo inheritance
+	//Special type of composition
+	car := ferrari{}
+
+	//The type car declared in ferrari struct will generate anonymous fields for ferrari
+	car.name = "F40"
+	car.speed = 0
+	car.turbo = true
+
+	log.Println(car.name, car.turbo)
+	log.Println(car)
 }
