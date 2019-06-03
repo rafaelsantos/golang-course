@@ -1,6 +1,9 @@
 package main
 
-import "log"
+import (
+	"log"
+	"strings"
+)
 
 type product struct {
 	name     string
@@ -19,6 +22,11 @@ type order struct {
 	itens  []item
 }
 
+type person struct {
+	name    string
+	surname string
+}
+
 //Creates a receiver of type product
 func (product product) priceWithDiscount() float64 {
 	return product.price * (1 - product.discount)
@@ -32,6 +40,16 @@ func (order order) getTotal() float64 {
 	}
 
 	return total
+}
+
+func (person person) getName() string {
+	return person.name + " " + person.surname
+}
+
+func (person *person) setName(name string) {
+	values := strings.Split(name, " ")
+	person.name = values[0]
+	person.surname = values[1]
 }
 
 func main() {
@@ -54,4 +72,10 @@ func main() {
 	}
 
 	log.Println(order.getTotal())
+
+	person1 := person{"Carlos", "Rodney"}
+	log.Println(person1.getName())
+
+	person1.setName("Juliana Lemes")
+	log.Println(person1.getName())
 }
