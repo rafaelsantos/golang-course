@@ -7,6 +7,7 @@ type course struct {
 }
 
 func main() {
+	//Generic type
 	var thing interface{}
 	fmt.Println(thing)
 

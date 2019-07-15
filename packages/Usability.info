@@ -1,0 +1,2 @@
+To create usable functions, just create a folder with source inside go path or any git repository
+To use any git repository just type go get {repository}
