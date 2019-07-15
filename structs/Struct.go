@@ -1,9 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 	"strings"
 )
+
+type data struct {
+	ID    int      `json:"id"`
+	Name  string   `json:"name"`
+	Price float64  `json:"price"`
+	Tags  []string `json:"tags"`
+}
 
 type product struct {
 	name     string
@@ -121,4 +129,20 @@ func main() {
 
 	//Using custom types
 	log.Println(scoreResult(9.4))
+
+	//Convert to JSON
+	d1 := data{1, "Notebook", 1899.90, []string{"Eletronic", "Computer"}}
+	js, error := json.Marshal(d1)
+
+	if error != nil {
+		log.Println(error)
+	}
+
+	log.Println(string(js))
+
+	var d2 data
+	value := `{"id":2,"name":"Pencil","price":7.9,"tags":["Util","Draw"]}`
+	error = json.Unmarshal([]byte(value), &d2)
+
+	log.Println(d2.Name)
 }
