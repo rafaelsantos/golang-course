@@ -4,7 +4,7 @@ This repository demonstrates basic features of Golang programming language
 
 ## Getting Started
 
-This repository has 4 distinct and very important branches:
+This repository has 43 distinct and very important branches:
 
 | Branch | Description |
 | --- | --- |
